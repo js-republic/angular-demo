@@ -1,3 +1,5 @@
 <h1>
-  {{title}}
+  {{counter}}
+  <app-counter [counter]="counter">loading counter...</app-counter>
+  <button (click)="reset()">reset</button>
 </h1>
