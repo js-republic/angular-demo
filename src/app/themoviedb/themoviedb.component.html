@@ -1,0 +1,22 @@
+<h2 class="centered">Liste des films les mieux notés</h2>
+<form>
+    <label for="searchName">Rechercher un film</label>
+    <input type="text" id="searchName" name="searchName" [(ngModel)]="searchName" (keyup)="searchUpdate()" />
+    <button (click)="clearSearch()">Effacer</button>
+</form>
+<hr />
+
+<ul>
+    <li *ngFor="let movie of movies">
+        <a href="/{{ movie.id }}">
+            <img *ngIf="movie.poster_path" class="movie__image" src="https://image.tmdb.org/t/p/w45{{ movie.poster_path }}" />
+            <div class="movie__title">{{ movie.title }}</div>
+        </a>
+    </li>
+</ul>
+
+<div class="centered">
+    <button [disabled]="page <= 1" (click)="previousPage()">Précédent</button>
+    {{ page }} / {{ totalPages }}
+    <button [disabled]="page >= totalPages" (click)="nextPage()">Suivant</button>
+</div>

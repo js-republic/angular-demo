@@ -1,3 +1,6 @@
+.idea
+src/app/app-settings.ts
+
 # Logs
 logs
 *.log
