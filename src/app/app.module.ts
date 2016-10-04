@@ -5,25 +5,27 @@ import { HttpModule } from '@angular/http';
 
 import { routing } from './app.router';
 import { AppComponent } from './app.component';
+import { CounterComponent } from './counter/counter.component';
 import { ThemoviedbComponent } from './themoviedb/themoviedb.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        ThemoviedbComponent,
-        MovieDetailsComponent
-    ],
+  declarations: [
+    AppComponent,
+    CounterComponent,
+    ThemoviedbComponent,
+    MovieDetailsComponent
+  ],
 
-    imports: [
-        BrowserModule,
-        FormsModule,
-        HttpModule,
-        routing
-    ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpModule,
+    routing
+  ],
 
-    providers: [],
-    bootstrap: [AppComponent]
+  providers: [],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

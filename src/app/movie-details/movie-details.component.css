@@ -1,0 +1,13 @@
+.movie-details {
+  display: flex; 
+  flex-flow: row wrap;
+}
+
+.movie-details img {
+  margin-right: 10px;
+  width: 300px;
+}
+
+.movie-details dl {
+  width: 400px;
+}
