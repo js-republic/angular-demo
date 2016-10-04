@@ -1,28 +1,35 @@
 /* tslint:disable:no-unused-variable */
 
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
+
 import { ThemoviedbComponent } from './themoviedb.component';
 
+
 describe('Component: Themoviedb', () => {
-    beforeEach(() => {
-        TestBed.configureTestingModule({
-            declarations: [
-                ThemoviedbComponent
-            ],
-        });
+  /* CONFIGURATION */
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [
+        ThemoviedbComponent
+      ],
     });
+  });
 
+  /* TESTS */
+  it('should create an instance', () => {
+    let component = new ThemoviedbComponent(undefined);
+    expect(component).toBeTruthy();
+  });
 
-    it('should create an instance', () => {
-        let component = new ThemoviedbComponent();
-        expect(component).toBeTruthy();
-    });
+  it('should not have any searchName', () => {
+    let component = new ThemoviedbComponent();
+    expect(component.searchName).toBe(undefined);
+  });
 
-    /*
-        it(`should have as title 'app works!'`, async(() => {
-            let fixture = TestBed.createComponent(AppComponent);
-            let app = fixture.debugElement.componentInstance;
-            expect(app.title).toEqual('app works!');
-        }));
-     */
+  it('should update the searchName', () => {
+    let component         = new ThemoviedbComponent();
+    component.searchName  = 'test';
+
+    expect(component.searchName).toEqual('test');
+  });
 });
