@@ -11,21 +11,21 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
 
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        CounterComponent,
-        ThemoviedbComponent,
-        MovieDetailsComponent
-    ],
+  declarations: [
+    AppComponent,
+    CounterComponent,
+    ThemoviedbComponent,
+    MovieDetailsComponent
+  ],
 
-    imports: [
-        BrowserModule,
-        FormsModule,
-        HttpModule,
-        routing
-    ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpModule,
+    routing
+  ],
 
-    providers: [],
-    bootstrap: [AppComponent]
+  providers: [],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

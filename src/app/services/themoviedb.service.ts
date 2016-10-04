@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Response } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise'; // this adds the non-static 'toPromise' operator
 import 'rxjs/add/operator/map';         // this adds the non-static 'map' operator
+import { Observable }  from 'rxjs/Observable';
+import 'rxjs/add/operator/catch';
 
 import AppSettings from './../app-settings';
 
@@ -33,6 +35,26 @@ export default class ThemoviedbService {
   }
 
 
-  getMovieById(id: number) {
+  getMovieById(id: number): Observable<Movie> {
+    return this.http.get(`${this.apiUrl}movie/${id}?api_key=${AppSettings.GetApiKey()}`)
+    .map(this.extractData)
+    .catch(this.handleError);
+  }
+
+  private extractData(res: Response) {
+    const json = res.json();
+    return json || {};
+  }
+
+  private handleError(error: any) {
+    let errMsg;
+    if (error.message)
+      errMsg = error.message;
+    else if (error.status)
+      errMsg = `${error.status} - ${error.statusText}` ;
+    else 
+      errMsg = 'Server error';
+    console.error(errMsg);
+    return Observable.throw(errMsg);
   }
 }

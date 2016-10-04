@@ -5,4 +5,6 @@ export interface Movie {
   overview: String;
   release_date: String;
   title: String;
+  id: Number;
+  poster_path: String;
 }
