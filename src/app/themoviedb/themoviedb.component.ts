@@ -19,32 +19,27 @@ export class ThemoviedbComponent implements OnInit {
 
 
     /* LIFECYCLE */
-    constructor (private _themoviedbService: ThemoviedbService)
-    { }
+    constructor (private _themoviedbService: ThemoviedbService) { }
 
-    ngOnInit()
-    {
+    ngOnInit() {
         this.getMovieTopRated();
     }
 
 
     /* EVENTS */
-    previousPage ()
-    {
+    previousPage() {
         if (this.page > 0) {
             this.getMovieTopRated(this.page - 1);
         }
     }
 
-    nextPage ()
-    {
+    nextPage() {
         if (this.page < this.totalPages) {
             this.getMovieTopRated(this.page + 1)
         }
     }
 
-    searchUpdate ()
-    {
+    searchUpdate() {
         if (this.searchName.length > 2) {
             this.getMovieBySearching(this.searchName);
 
@@ -54,30 +49,26 @@ export class ThemoviedbComponent implements OnInit {
         }
     }
 
-    clearSearch ()
-    {
+    clearSearch() {
         this.searchName = "";
         this.getMovieTopRated();
     }
 
 
     /* METHODS */
-    getMovieBySearching (name:string)
-    {
-        this._themoviedbService.GetMovieBySearching(name, (response: Response) => {
+    getMovieBySearching(name:string) {
+        this._themoviedbService.getMovieBySearching(name, (response: Response) => {
             this.updateMovies(response.json())
         });
     }
 
-    getMovieTopRated (page:number = 1)
-    {
-        this._themoviedbService.GetMovieTopRated(page || this.page, (response: Response) => {
+    getMovieTopRated(page:number = 1) {
+        this._themoviedbService.getMovieTopRated(page || this.page, (response: Response) => {
             this.updateMovies(response.json());
         });
     }
 
-    updateMovies (data)
-    {
+    updateMovies(data) {
         this.movies     = data.results;
         this.page       = data.page;
         this.totalPages = data.total_pages;

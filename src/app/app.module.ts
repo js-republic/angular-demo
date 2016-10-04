@@ -7,7 +7,7 @@ import { routing } from './app.router';
 import { AppComponent } from './app.component';
 import { CounterComponent } from './counter/counter.component';
 import { ThemoviedbComponent } from './themoviedb/themoviedb.component';
-import { MovieDetailComponent } from './movie-detail/movie-detail.component';
+import { MovieDetailsComponent } from './movie-details/movie-details.component';
 
 
 @NgModule({
@@ -15,7 +15,7 @@ import { MovieDetailComponent } from './movie-detail/movie-detail.component';
         AppComponent,
         CounterComponent,
         ThemoviedbComponent,
-        MovieDetailComponent
+        MovieDetailsComponent
     ],
 
     imports: [
