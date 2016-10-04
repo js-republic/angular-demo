@@ -5,7 +5,6 @@ import { HttpModule } from '@angular/http';
 
 import { routing } from './app.router';
 import { AppComponent } from './app.component';
-import { CounterComponent } from './counter/counter.component';
 import { ThemoviedbComponent } from './themoviedb/themoviedb.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 
@@ -13,7 +12,6 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
 @NgModule({
   declarations: [
     AppComponent,
-    CounterComponent,
     ThemoviedbComponent,
     MovieDetailsComponent
   ],

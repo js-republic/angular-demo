@@ -5,6 +5,7 @@ import 'rxjs/add/operator/toPromise';   // this adds the non-static 'toPromise' 
 import 'rxjs/add/operator/map';         // this adds the non-static 'map' operator
 import { Observable }  from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
+import { Movie } from '../models/movie';
 
 import AppSettings from './../app-settings';
 
