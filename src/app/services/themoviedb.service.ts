@@ -7,7 +7,7 @@ import { Observable }  from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import { Movie } from '../models/movie';
 
-import AppSettings from './../app-settings';
+import AppSettings from '../app-settings';
 
 
 @Injectable()
