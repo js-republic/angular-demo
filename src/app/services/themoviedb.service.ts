@@ -1,14 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 
-import 'rxjs/add/operator/toPromise'; // this adds the non-static 'toPromise' operator
+import 'rxjs/add/operator/toPromise';   // this adds the non-static 'toPromise' operator
 import 'rxjs/add/operator/map';         // this adds the non-static 'map' operator
 import { Observable }  from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 
 import AppSettings from './../app-settings';
-
-import { Movie } from '../models/movie';
 
 
 @Injectable()
@@ -22,18 +20,17 @@ export default class ThemoviedbService {
 
 
   /* METHODS */
-  getMovieTopRated(page:number, cb) {
-    return this.http
+  getMovieTopRated(page: number, cb: any): void {
+    this.http
     .get(`${this.apiUrl}movie/top_rated?api_key=${AppSettings.GetApiKey()}&language=fr-FR&page=${page || 1}`)
     .toPromise().then(cb);
   }
 
-  getMovieBySearching(name:string, cb) {
-    return this.http
+  getMovieBySearching(name: string, cb: any): void {
+    this.http
     .get(`${this.apiUrl}search/movie?api_key=${AppSettings.GetApiKey()}&language=fr-FR&query=${name}`)
     .toPromise().then(cb);
   }
-
 
   getMovieById(id: number): Observable<Movie> {
     return this.http.get(`${this.apiUrl}movie/${id}?api_key=${AppSettings.GetApiKey()}`)
@@ -48,12 +45,18 @@ export default class ThemoviedbService {
 
   private handleError(error: any) {
     let errMsg;
-    if (error.message)
+
+    if (error.message) {
       errMsg = error.message;
-    else if (error.status)
-      errMsg = `${error.status} - ${error.statusText}` ;
-    else 
+
+    } else if (error.status) {
+      errMsg = `${error.status} - ${error.statusText}`;
+
+    } else {
       errMsg = 'Server error';
+
+    }
+
     console.error(errMsg);
     return Observable.throw(errMsg);
   }
