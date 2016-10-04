@@ -22,6 +22,7 @@ cache:
 before_script:
   - npm install -g angular-cli
   - npm install -g karma
+  - npm i process-nextick-args util-deprecate
   - npm install
   - ng build
 
