@@ -23,6 +23,12 @@ module.exports = function (config) {
         lcovonly: './coverage/coverage.lcov'
       }
     },
+    customLaunchers: {
+      Chrome_travis_ci: {
+        base: 'Chrome',
+        flags: ['--no-sandbox']
+      }
+    },
     angularCli: {
       config: './angular-cli.json',
       environment: 'dev'

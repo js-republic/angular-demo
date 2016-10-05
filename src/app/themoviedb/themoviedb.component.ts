@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Response } from '@angular/http';
 
-import ThemoviedbService from './../services/themoviedb.service';
+import ThemoviedbService from '../services/themoviedb.service';
 
 
 @Component({

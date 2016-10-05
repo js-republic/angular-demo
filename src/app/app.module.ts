@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { ThemoviedbComponent } from './themoviedb/themoviedb.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 
+import ThemoviedbService from './services/themoviedb.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
     routing
   ],
 
-  providers: [],
+  providers: [ThemoviedbService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
