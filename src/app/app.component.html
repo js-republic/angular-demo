@@ -1,1 +1,16 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav">
+
+            <li [routerLink]="['/']" [routerLinkActive]="['active']">
+                <a [routerLink]="['/']">Home</a>
+            </li>
+
+            <li [routerLink]="['/form']" [routerLinkActive]="['active']">
+                <a [routerLink]="['/form']">Formulaire</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
 <router-outlet></router-outlet>

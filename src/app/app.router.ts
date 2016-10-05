@@ -1,13 +1,15 @@
-import { ModuleWithProviders } from "@angular/core";
-import { Routes, RouterModule } from "@angular/router";
+import { ModuleWithProviders } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
-import {ThemoviedbComponent} from "./themoviedb/themoviedb.component";
+import { ThemoviedbComponent } from './themoviedb/themoviedb.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { FormComponent } from './form/form.component';
 
 
 const appRoutes:Routes = [
-    { path: '', component: ThemoviedbComponent },
-    { path: 'movie/:id', component: MovieDetailsComponent }
+  { path: '', component: ThemoviedbComponent },
+  { path: 'movie/:id', component: MovieDetailsComponent },
+  { path: 'form', component: FormComponent }
 ];
 
 
