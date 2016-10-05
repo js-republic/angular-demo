@@ -9,12 +9,14 @@ import { ThemoviedbComponent } from './themoviedb/themoviedb.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 
 import ThemoviedbService from './services/themoviedb.service';
+import { FormComponent } from './form/form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ThemoviedbComponent,
-    MovieDetailsComponent
+    MovieDetailsComponent,
+    FormComponent
   ],
 
   imports: [
