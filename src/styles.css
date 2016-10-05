@@ -1,8 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
-dt {
-  font-weight: bold;
-}
-
 dd {
  margin-bottom: 10px; 
+}
+
+[hidden] {
+  display: none !important;
 }

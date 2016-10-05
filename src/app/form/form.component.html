@@ -1,45 +1,46 @@
 <form (submit)="onSubmit()" class="form col-md-6 col-md-offset-3">
-    <h1>Créer un utilisateur</h1>
+  <h1>Créer un utilisateur</h1>
 
-    <div class="form-group">
-        <label for="username">Username</label>
-        <input [(ngModel)]="user.username" #username="ngModel"
-               class="form-control" type="text" id="username" name="username"
-               minlength="4" maxlength="15" required />
+  <div class="form-group" [class.has-error]="!username.valid && username.touched">
+    <label class="control-label" for="username">Username</label>
+    <input [(ngModel)]="user.username" #username="ngModel"
+    class="form-control" type="text" id="username" name="username"
+    minlength="4" maxlength="15" required />
 
-        <div [hidden]="username.valid || username.pristine" class="alert alert-danger">
-            Votre nom d'utilisateur doit faire entre 4 et 15 caractères.
-        </div>
-    </div>
+    <span class="help-block" [hidden]="username.valid || !username.touched" >
+      Votre nom d'utilisateur doit faire entre 4 et 15 caractères.
+    </span>
+  </div>
 
-    <div class="form-group">
-        <label for="email">Email</label>
-        <input [(ngModel)]="user.email" #email="ngModel"
-            class="form-control" type="email" id="email" name="email" required />
+  <div class="form-group" [class.has-error]="!email.valid && email.touched">
+    <label class="control-label" for="email">Email</label>
+    <input [(ngModel)]="user.email" #email="ngModel"
+    class="form-control" type="email" id="email" name="email" required />
 
-        <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
-            Votre Email doit être de la forme test@domaine.fr
-        </div>
-    </div>
+    <span class="help-block" [hidden]="email.valid || !email.touched" >
+      Votre nom d'utilisateur doit faire entre 4 et 15 caractères.
+    </span>
+  </div>
 
-    <div class="form-group">
-        <label for="birthday">Birthday</label>
-        <input [(ngModel)]="user.birthday" class="form-control" type="date" id="birthday" name="birthday" required />
-    </div>
+  <div class="form-group">
+    <label for="birthday">Birthday</label>
+    <input [(ngModel)]="user.birthday" 
+    class="form-control" type="date" id="birthday" name="birthday" required />
+  </div>
 
-    <div class="form-group">
-        <label for="type">Situation</label>
-        <select [(ngModel)]="user.type" class="form-control" id="type" name="type" required>
-            <option *ngFor="let userType of userTypes" [value]="userType">{{ userType }}</option>
-        </select>
-    </div>
+  <div class="form-group">
+    <label for="type">Situation</label>
+    <select [(ngModel)]="user.type" class="form-control" id="type" name="type" required>
+      <option *ngFor="let userType of userTypes" [value]="userType">{{ userType }}</option>
+    </select>
+  </div>
 
-    <div class="form-group">
-        <label for="password">Password</label>
-        <input [(ngModel)]="user.password" class="form-control" type="password" id="password" name="password" required />
-    </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input [(ngModel)]="user.password" class="form-control" type="password" id="password" name="password" required />
+  </div>
 
-    <div class="pull-right">
-        <input type="submit" value="Enregistrer" />
-    </div>
+  <div class="pull-right">
+    <input type="submit" value="Enregistrer" />
+  </div>
 </form>
