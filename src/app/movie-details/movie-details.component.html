@@ -1,12 +1,17 @@
 <span *ngIf="!movie" class="movie-details">loading movie...</span>
 <div *ngIf="movie" >
   <a routerLink="/">Back to movies</a>
-  <h2>{{ movie.title }}</h2>
+  <h2
+    >{{ movie.title }}</h2>
   <hr />
   <div class="movie-details">
-    <img *ngIf="movie.poster_path" class="movie__image" src="https://image.tmdb.org/t/p/w300{{ movie.poster_path }}" />
-    <dl>
-      <dt>Overview</dt>
+    <img *ngIf="movie.poster_path" 
+    [@imgDisplayed]="isImgDisplayed"
+    [@imgSlideIn]="'in'" 
+    class="movie__image" 
+    src="https://image.tmdb.org/t/p/w300{{ movie.poster_path }}" />
+    <dl [@detailsFadeIn]="'in'">
+      <dt >Overview</dt>
       <dd>{{ movie.overview}}</dd>
       <dt>Adult</dt>
       <dd>{{ movie.adult }}</dd>
@@ -18,4 +23,5 @@
       <dd>{{ movie.release_date }}</dd>
     </dl>
   </div>
+  <button (click)="toggleImg()">Toggle img</button>
 </div>
