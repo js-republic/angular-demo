@@ -19,7 +19,6 @@ cache:
     - node_modules
 
 before_script:
-  - npm install -g angular-cli
   - npm install -g karma
 
 script: karma start karma.conf.js --single-run
