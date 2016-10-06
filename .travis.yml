@@ -1,8 +1,8 @@
 language: node_js
 
 node_js:
-  - 5
-  - 6
+  #- 5
+  - "6"
 apt:
   sources:
     - google-chrome
@@ -10,11 +10,20 @@ apt:
     - google-chrome-stable
     - google-chrome-beta
 
+sudo: false
+
 before_install:
   - export CHROME_BIN=chromium-browser
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
-  - npm i -g npm@^3
+  - "npm config set spin false"
+  - "npm i -g npm@^3"
+
+#before_install:
+#  - mkdir travis-phantomjs
+#  - wget https://s3.amazonaws.com/travis-phantomjs/phantomjs-2.0.0-ubuntu-12.04.tar.bz2 -O $PWD/travis-phantomjs/phantomjs-2.0.0-ubuntu-12.04.tar.bz2
+#  - tar -xvf $PWD/travis-phantomjs/phantomjs-2.0.0-ubuntu-12.04.tar.bz2 -C $PWD/travis-phantomjs
+#  - export PATH=$PWD/travis-phantomjs:$PATH
 
 cache:
   directories:
@@ -24,5 +33,6 @@ before_script:
   - npm install -g angular-cli
   - npm install -g karma
   - npm install
+  - ng build
 
-script: ng test 
+script: karma start karma.conf.js --single-run
