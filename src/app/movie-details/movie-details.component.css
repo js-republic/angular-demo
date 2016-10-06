@@ -9,5 +9,6 @@
 }
 
 .movie-details dl {
+  margin-left: 10px;
   width: 400px;
 }

@@ -7,6 +7,8 @@ import { Observable }  from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import { Movie } from '../models/movie';
 
+import 'rxjs/add/observable/interval';
+
 import AppSettings from '../app-settings';
 
 
@@ -14,6 +16,7 @@ import AppSettings from '../app-settings';
 export default class ThemoviedbService {
   /* ATTRIBUTES */
   private apiUrl: string = 'https://api.themoviedb.org/3/';
+  private counter: number = 0;
 
 
   /* CONSTRUCTOR */
@@ -37,6 +40,11 @@ export default class ThemoviedbService {
     return this.http.get(`${this.apiUrl}movie/${id}?api_key=${AppSettings.GetApiKey()}`)
     .map(this.extractData)
     .catch(this.handleError);
+  }
+
+
+  loadSomething() : Observable<number> {
+    return Observable.interval(1000)
   }
 
   private extractData(res: Response) {

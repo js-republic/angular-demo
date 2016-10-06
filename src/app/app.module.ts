@@ -10,13 +10,15 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
 
 import ThemoviedbService from './services/themoviedb.service';
 import { FormComponent } from './form/form.component';
+import { MyButtonComponent } from './my-button/my-button.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ThemoviedbComponent,
     MovieDetailsComponent,
-    FormComponent
+    FormComponent,
+    MyButtonComponent
   ],
 
   imports: [
