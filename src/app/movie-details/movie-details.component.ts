@@ -50,6 +50,11 @@ export class MovieDetailsComponent implements OnInit {
   private errorMessage: string;
   @Input() isImgDisplayed: boolean = true;
 
+  private isLoading: boolean = false;
+  
+  // see for i18n instead of write the text here 
+  private btnString: string = 'Toogle loading';
+
   constructor(
     private movieDbService: ThemoviedbService,
     private route: ActivatedRoute,
@@ -70,6 +75,11 @@ export class MovieDetailsComponent implements OnInit {
 
     toggleImg() {
       this.isImgDisplayed = !this.isImgDisplayed;
+    }
+
+    handleClick(e) {
+      this.isLoading = !this.isLoading;
+      this.btnString = this.isLoading ? 'loading...' : 'Toogle loading';
     }
 
 }

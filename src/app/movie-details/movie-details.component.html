@@ -1,27 +1,31 @@
 <span *ngIf="!movie" class="movie-details">loading movie...</span>
 <div *ngIf="movie" >
-  <a routerLink="/">Back to movies</a>
-  <h2
-    >{{ movie.title }}</h2>
+  <h2>{{ movie.title }}</h2>
   <hr />
+  <a routerLink="/">Back to movies</a>
   <div class="movie-details">
     <img *ngIf="movie.poster_path" 
     [@imgDisplayed]="isImgDisplayed"
     [@imgSlideIn]="'in'" 
     class="movie__image" 
     src="https://image.tmdb.org/t/p/w300{{ movie.poster_path }}" />
-    <dl [@detailsFadeIn]="'in'">
-      <dt >Overview</dt>
-      <dd>{{ movie.overview}}</dd>
-      <dt>Adult</dt>
-      <dd>{{ movie.adult }}</dd>
-      <dt>Budget</dt>
-      <dd>{{ movie.budget }}</dd>
-      <dt>Original title</dt>
-      <dd>{{ movie.original_title }}</dd>
-      <dt>Release date</dt>
-      <dd>{{ movie.release_date }}</dd>
-    </dl>
+    <div>
+      <dl [@detailsFadeIn]="'in'">
+        <dt >Overview</dt>
+        <dd>{{ movie.overview}}</dd>
+        <dt>Adult</dt>
+        <dd>{{ movie.adult }}</dd>
+        <dt>Budget</dt>
+        <dd>{{ movie.budget }}</dd>
+        <dt>Original title</dt>
+        <dd>{{ movie.original_title }}</dd>
+        <dt>Release date</dt>
+        <dd>{{ movie.release_date }}</dd>
+      </dl>
+      <div>
+        <my-button  (click)="handleClick($event)" [loading]="isLoading">{{btnString}}</my-button>
+        <button class="btn btn-secondary" (click)="toggleImg()">Toogle img</button>
+      </div>
+    </div>
   </div>
-  <button (click)="toggleImg()">Toggle img</button>
 </div>
