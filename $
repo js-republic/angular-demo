@@ -9,7 +9,6 @@ import { ThemoviedbComponent } from './themoviedb/themoviedb.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 
 import ThemoviedbService from './services/themoviedb.service';
-import UsersService from './services/users.service';
 import { FormComponent } from './form/form.component';
 import { MyButtonComponent } from './my-button/my-button.component';
 import { TDBtn } from './my-button/my-button.component';
@@ -22,7 +21,7 @@ import { UsersComponent } from './users/users.component';
     MovieDetailsComponent,
     FormComponent,
     MyButtonComponent,
-    TDBtn,
+    // TDBtn,
     UsersComponent
   ],
 
@@ -33,10 +32,7 @@ import { UsersComponent } from './users/users.component';
     routing
   ],
 
-  providers: [
-    ThemoviedbService, 
-    UsersService
-  ],
+  providers: [ThemoviedbService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
