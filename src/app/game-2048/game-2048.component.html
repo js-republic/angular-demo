@@ -1,0 +1,9 @@
+<div class="g2048__table">
+
+    <div *ngFor="let r of data" class="g2048__row">
+        <app-game-2048-case *ngFor="let c of r" class="g2048__cell"
+            [key]="key"
+            [value]="c">
+        </app-game-2048-case>
+    </div>
+</div>

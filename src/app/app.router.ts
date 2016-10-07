@@ -3,15 +3,15 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { ThemoviedbComponent } from './themoviedb/themoviedb.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
-import { FormComponent } from './form/form.component';
+import { Game2048Component } from './game-2048/game-2048.component';
 import { FormContainerComponent } from './form-container/form-container.component';
-import { UsersComponent } from './users/users.component';
 
 
 const appRoutes:Routes = [
   { path: '', component: ThemoviedbComponent },
   { path: 'movie/:id', component: MovieDetailsComponent },
-  { path: 'form', component: FormContainerComponent }
+  { path: 'form', component: FormContainerComponent },
+  { path: '2048', component: Game2048Component }
 ];
 
 

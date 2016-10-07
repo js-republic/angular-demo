@@ -1,0 +1,16 @@
+.g2048__table {
+    display: table;
+    table-layout: fixed;
+    border-collapse: separate;
+    border-spacing: 5px;
+    background: #BBADA0;
+}
+
+.g2048__row {
+    display: table-row;
+}
+
+.g2048__cell {
+    display: table-cell;
+    vertical-align: top;
+}
