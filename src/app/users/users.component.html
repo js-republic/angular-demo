@@ -1,0 +1,25 @@
+<h2>Users</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Birthday</th>
+      <th>Email</th>
+      <th>Type</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr [@fadeOut]="'out'" *ngFor="let u of users">
+      <td>{{u.username}}</td>
+      <td>{{u.birthday}}</td>
+      <td>{{u.email}}</td>
+      <td>{{u.type}}</td>
+      <td>
+        <td-btn (click)="handleDelete(u.id)">
+          <span class="fa fa-trash"></span>
+        </td-btn>
+      </td>
+    </tr>
+  </tbody>
+</table>
