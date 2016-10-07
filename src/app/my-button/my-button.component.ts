@@ -21,3 +21,35 @@ export class MyButtonComponent implements OnInit {
   ngOnInit() { }
 
 }
+
+// yeah.. don't know how to name it yet!
+// so gonna be td-btn for now ;)
+@Component({
+  selector: 'td-btn',
+  templateUrl: `
+    <button class="btn table-btn-menu" >
+      <ng-content></ng-content>
+    </button>
+  `,
+  styles: [`
+    .button {
+      transition: all 0.2s ease-out;
+      border-radius: 0px;
+    }
+    .table-btn-menu {
+      background: none;
+      box-shadow: none;
+      outline: none;
+      color: #A5A5A5;
+      padding: 0;
+    }
+    `
+  ],
+})
+export class TDBtn implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() { }
+
+}

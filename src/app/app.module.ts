@@ -11,6 +11,8 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import ThemoviedbService from './services/themoviedb.service';
 import { FormComponent } from './form/form.component';
 import { MyButtonComponent } from './my-button/my-button.component';
+import { TDBtn } from './my-button/my-button.component';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { MyButtonComponent } from './my-button/my-button.component';
     ThemoviedbComponent,
     MovieDetailsComponent,
     FormComponent,
-    MyButtonComponent
+    MyButtonComponent,
+    TDBtn,
+    UsersComponent
   ],
 
   imports: [
