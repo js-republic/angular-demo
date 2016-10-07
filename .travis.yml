@@ -1,13 +1,17 @@
-sudo: true
+sudo: required
 dist: trusty
 language: node_js
 
 node_js:
-  - "6.2.0"
+  - "5"
 
-before_install:
-  - "export PHANTOMJS_EXECUTABLE='phantomjs --local-to-remote-url-access=yes --ignore-ssl-errors=yes'"
-  - "export DISPLAY=:99.0"
+env:
+  global:
+    - "DBUS_SESSION_BUS_ADDRESS=/dev/null"
+    - "DISPLAY=:99.0"
+    - "CHROME_BIN=chromium-browser"
+
+before_script:
   - "sh -e /etc/init.d/xvfb start"
 
 cache:
@@ -17,4 +21,4 @@ cache:
 before_script:
   - npm install -g karma
 
-script: karma start --single-run --browsers PhantomJS
+script: karma start karma.conf.js --single-run
