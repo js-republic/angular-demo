@@ -1,10 +1,11 @@
 [![Build Status](https://travis-ci.org/js-republic/angular-demo.svg?branch=master)](https://travis-ci.org/js-republic/angular-demo)
-# AngularCliTest
-
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.16.
 
 ## Development server
+Retrieve the file `app-settings.js` containing the api_key: https://drive.google.com/open?id=0B-PwG3OQXfSbTVJpZGJ4Mm90Slk
+Place the file into `src/app/`.
+
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
 
 ## Code scaffolding
 
