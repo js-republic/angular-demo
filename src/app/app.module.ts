@@ -11,6 +11,8 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import ThemoviedbService from './services/themoviedb.service';
 import { FormComponent } from './form/form.component';
 import { MyButtonComponent } from './my-button/my-button.component';
+import { Game2048Component } from './game-2048/game-2048.component';
+import { Game2048CaseComponent } from './game-2048-case/game-2048-case.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { MyButtonComponent } from './my-button/my-button.component';
     ThemoviedbComponent,
     MovieDetailsComponent,
     FormComponent,
-    MyButtonComponent
+    MyButtonComponent,
+    Game2048Component,
+    Game2048CaseComponent
   ],
 
   imports: [
