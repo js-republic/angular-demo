@@ -15,6 +15,7 @@ import { MyButtonComponent } from './my-button/my-button.component';
 import { TDBtn } from './my-button/my-button.component';
 import { UsersComponent } from './users/users.component';
 import { FormContainerComponent } from './form-container/form-container.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { FormContainerComponent } from './form-container/form-container.componen
     BrowserModule,
     FormsModule,
     HttpModule,
+    ReactiveFormsModule,
     routing
   ],
 
