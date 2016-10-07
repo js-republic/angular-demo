@@ -14,6 +14,7 @@ import { FormComponent } from './form/form.component';
 import { MyButtonComponent } from './my-button/my-button.component';
 import { TDBtn } from './my-button/my-button.component';
 import { UsersComponent } from './users/users.component';
+import { FormContainerComponent } from './form-container/form-container.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { UsersComponent } from './users/users.component';
     FormComponent,
     MyButtonComponent,
     TDBtn,
-    UsersComponent
+    UsersComponent,
+    FormContainerComponent
   ],
 
   imports: [

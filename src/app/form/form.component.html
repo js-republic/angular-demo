@@ -1,6 +1,4 @@
-<form (submit)="onSubmit()" class="form col-md-6 col-md-offset-3">
-  <h1>Créer un utilisateur</h1>
-
+<form (submit)="handleSubmit($event)" class="form col-md-11">
   <div class="form-group" [class.has-danger]="!username.valid && username.touched">
     <label class="control-label" for="username">Username</label>
     <input [(ngModel)]="user.username" #username="ngModel"
@@ -41,6 +39,6 @@
   </div>
 
   <div class="pull-right">
-    <input type="submit" value="Enregistrer" />
+    <input class="btn btn-success" type="submit" value="Enregistrer" />
   </div>
 </form>

@@ -1,26 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { User } from './../models/user';
+import UsersService from "../services/users.service";
 
 
 @Component({
-  selector: 'app-form',
+  selector: 'my-form',
   templateUrl: './form.component.html',
-  styleUrls: ['./form.component.css']
+  styleUrls: ['./form.component.css'],
+  providers: [UsersService]
 })
 export class FormComponent implements OnInit {
   user: User = new User();
-  userTypes: string[] = ["Célibataire", "Union libre", "Pacsé(e)", "Marié(e)", "Divorcé(e)", "veuf(ve)"];
+  userTypes: string[] = [
+    "Célibataire", 
+    "Union libre",
+    "Pacsé(e)",
+    "Marié(e)",
+    "Divorcé(e)",
+    "veuf(ve)"
+  ];
 
+  @Output() onSubmit: EventEmitter<any> = new EventEmitter();
 
-  constructor() {
-  }
+  constructor(private usersService: UsersService) { }
 
   ngOnInit() {
   }
 
-  onSubmit() {
-    console.log(this.user);
+  handleSubmit($event) {
+    $event.preventDefault();
+    this.onSubmit.emit({ user: this.user })
   }
 
 }
