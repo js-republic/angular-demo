@@ -1,0 +1,15 @@
+<h2>This is a form test</h2>
+<div class="row">
+  <div class="col-md-6">
+    <my-form 
+      (onDelete)="handleDelete($event)"
+      (onSubmit)="handleSubmit($event)" >
+    </my-form>
+  </div>
+  <div class="col-md-6">
+    <user-list 
+      [users]="getUsers()"
+      (onDelete)="handleDelete($event)">
+    </user-list>
+  </div>
+</div>

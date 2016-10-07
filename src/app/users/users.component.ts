@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../models/user';
-import UsersService from "../services/users.service";
 
 // animation stuff
 import {
+  Input,
+  Output,
   trigger,
   state,
   style,
   transition,
+  EventEmitter,
   animate
 } from '@angular/core';
 
@@ -23,27 +25,21 @@ const animations = [
 ]
 
 @Component({
-  selector: 'app-users',
+  selector: 'user-list',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css'],
-  providers: [UsersService],
   animations,
 })
-export class UsersComponent implements OnInit {
+export class UsersComponent {
 
-  private users: User[];
+  @Input() users: User[];
+  @Output() onDelete: EventEmitter<any> = new EventEmitter();
 
-  constructor(private usersService: UsersService) { }
-
-  ngOnInit() {
-    this.users = this.usersService.getUsers();
-  }
+  constructor() { }
 
 
   handleDelete(userId) {
-    console.log('tototo');
-    this.usersService.deleteUser(userId);
-    this.users = this.usersService.getUsers();
+    this.onDelete.emit({userId});
   }
 
 }

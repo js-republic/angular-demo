@@ -21,8 +21,16 @@ export default class UsersService {
 
 
   addUser(user: User): void{
-    this.cptId++;
-    this.users.push(user);
+    console.log(user);
+    const newUser = new User({
+      id: this.cptId++,
+      username: user.username,
+      birthday: user.birthday,
+      email: user.email,
+      type: user.type
+    });
+
+    this.users.push(newUser);
   }
 
   getUsers(): User[] {
