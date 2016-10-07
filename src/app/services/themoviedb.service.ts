@@ -9,7 +9,17 @@ import { Movie } from '../models/movie';
 
 import 'rxjs/add/observable/interval';
 
-import AppSettings from '../app-settings';
+try {
+  var AppSettings = require('./../app-settings');
+
+} catch (e) {
+  var AppSettings = {
+    GetApiKey: () => {
+      return '';
+    }
+  }
+
+}
 
 
 @Injectable()
