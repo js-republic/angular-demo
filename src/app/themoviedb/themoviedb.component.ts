@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { Response } from '@angular/http';
+import 'rxjs/add/operator/debounceTime';
 
 import ThemoviedbService from '../services/themoviedb.service';
 
@@ -17,9 +19,15 @@ export class ThemoviedbComponent implements OnInit {
     public totalPages: number;
     public searchName: string;
 
+    searchString: FormControl = new FormControl();
+
 
     /* LIFECYCLE */
-    constructor (private _themoviedbService: ThemoviedbService) { }
+    constructor (private _themoviedbService: ThemoviedbService) {
+      this.searchString.valueChanges
+      .debounceTime(400)
+      .subscribe(term => this.searchUpdate(term));
+    }
 
     ngOnInit(): void {
         this.getMovieTopRated(undefined);
@@ -39,11 +47,11 @@ export class ThemoviedbComponent implements OnInit {
         }
     }
 
-    public searchUpdate(): void {
-        if (this.searchName.length > 2) {
-            this.getMovieBySearching(this.searchName);
+    public searchUpdate(searchName): void {
+        if (searchName.length > 0) {
+            this.getMovieBySearching(searchName);
 
-        } else if (!this.searchName.length) {
+        } else if (!searchName.length) {
             this.clearSearch();
 
         }

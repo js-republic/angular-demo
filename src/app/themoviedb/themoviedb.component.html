@@ -1,7 +1,7 @@
 <h2 class="centered">Liste des films les mieux notés</h2>
 <form>
   <label for="searchName">Rechercher un film</label>
-  <input type="text" id="searchName" name="searchName" [(ngModel)]="searchName" (keyup)="searchUpdate()" />
+  <input type="text" id="searchName" name="searchName" [formControl]="searchString" />
   <button (click)="clearSearch()">Effacer</button>
 </form>
 <hr />
