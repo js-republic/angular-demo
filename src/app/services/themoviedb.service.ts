@@ -9,16 +9,14 @@ import { Movie } from '../models/movie';
 
 import 'rxjs/add/observable/interval';
 
+// import AppSettings from '../app-settings';
+
+let API_KEY = '';
 try {
-  var AppSettings = require('./../app-settings');
-
+  const AppSettings = require('../app-settings');
+  API_KEY = AppSettings.API_KEY;
 } catch (e) {
-  var AppSettings = {
-    GetApiKey: () => {
-      return '';
-    }
-  }
-
+  console.log('AppSettings not found');
 }
 
 
@@ -36,18 +34,19 @@ export default class ThemoviedbService {
   /* METHODS */
   getMovieTopRated(page: number, cb: any): void {
     this.http
-    .get(`${this.apiUrl}movie/top_rated?api_key=${AppSettings.GetApiKey()}&language=fr-FR&page=${page || 1}`)
+    .get(`${this.apiUrl}movie/top_rated?api_key=${API_KEY}&language=fr-FR&page=${page || 1}`)
     .toPromise().then(cb);
+
   }
 
   getMovieBySearching(name: string, cb: any): void {
     this.http
-    .get(`${this.apiUrl}search/movie?api_key=${AppSettings.GetApiKey()}&language=fr-FR&query=${name}`)
+    .get(`${this.apiUrl}search/movie?api_key=${API_KEY}&language=fr-FR&query=${name}`)
     .toPromise().then(cb);
   }
 
   getMovieById(id: number): Observable<Movie> {
-    return this.http.get(`${this.apiUrl}movie/${id}?api_key=${AppSettings.GetApiKey()}`)
+    return this.http.get(`${this.apiUrl}movie/${id}?api_key=${API_KEY}`)
     .map(this.extractData)
     .catch(this.handleError);
   }
