@@ -12,8 +12,8 @@ export class Game2048Component implements OnInit {
   public columnsLength: number = 4;
   public data: Array<Array<number>>;
   public key: string;
-  private busy: boolean = false;
-  private directions: Object = {
+  public busy: boolean = false;
+  public directions: any = {
     LEFT: 'slideLeft',
     RIGHT: 'slideRight',
     UP: 'slideUp',
@@ -136,6 +136,7 @@ export class Game2048Component implements OnInit {
         if (movedRow) { break; }
       }
 
+      // If there are no row to be moved
       if (currentRow && currentRow != movedRow) {
         continue;
       }
@@ -185,7 +186,7 @@ export class Game2048Component implements OnInit {
 
   /* EVENTS */
   @HostListener('window:keydown', ['$event'])
-  private onKeydown(e: KeyboardEvent) {
+  public onKeydown(e: KeyboardEvent) {
     if (this.key != e.key) {
       this.key = e.key;
       this.makeDirection();
@@ -193,7 +194,7 @@ export class Game2048Component implements OnInit {
   }
 
   @HostListener('window:keyup')
-  private onKeyup() {
+  public onKeyup() {
     this.key = '';
   }
 }

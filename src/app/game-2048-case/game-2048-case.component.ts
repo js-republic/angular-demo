@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 
+
 @Component({
   selector: 'app-game-2048-case',
   templateUrl: './game-2048-case.component.html',
@@ -9,7 +10,7 @@ export class Game2048CaseComponent {
   /* ATTRIBUTES */
   @Input() value: number;
   @Input() key: string;
-  private backgroundColors: Object = {
+  public readonly backgroundColors: Object = {
     0: "#CDC1B5",
     2: "#EEE4DA",
     4: "#ECE0CA",
@@ -30,13 +31,13 @@ export class Game2048CaseComponent {
 
 
   /* METHODS */
-  getBackgroundColorByValue(value: number): string {
+  getBackgroundColorByValue(value?: number): string {
     let backgroundColor = this.backgroundColors[value || this.value];
 
     return backgroundColor || "#CDC1B5";
   }
 
-  getFontColorByValue(value: number): string {
+  getFontColorByValue(value?: number): string {
     value = value || this.value;
 
     return value > 4 ? "white" : "black";
